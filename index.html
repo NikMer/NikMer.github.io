@@ -3,27 +3,53 @@
     <head>
         <title>Home-page</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        
+					<script src="js1.js"></script>
+
     </head>
     <body> 
     <h1>Аналитика</h1>      
         <blockquote>
-            <p>Данная страница является тестовой домашней страницей.<br></p>
+            <p class="rd"><em>Данная страница является тестовой.</em><br>
+						Для сбора и анализа статистических показатлей необходимо заполнить форму.<br>
+            </p>
         </blockquote>
         <div class="d1">
-       			<p>Ваше имя:</p><br>
-   					<input type="text" size="10">
-   					<p>Пол:</p><br>
-   					<input type="radio" name="sx" value="M"> М
-   					<input type="radio" name="sx" value="W"> Ж<Br>      	
+
+       			<div class="dv">
+       				<p>Имя:</p><br>
+   						<input type="text" size="10">        				
+       			</div>
+
+       			<div class="dv">
+       				<p>Возраст:</p><br>
+   						<input type="text" size="10">        				
+       			</div>  
+
+   					<div class="dv">
+   							<p>Пол:</p><br>
+   							<input class="rb" type="radio" name="sx" value="M" id="sx1"><label for="sx1">М</label>
+   							<input class="rb" type="radio" name="sx" value="W" id="sx2"><label for="sx2">Ж</label>
+   					</div>
+
+   					 <form action="">
+   							<p>После ввода первичных данных выберите курс обучения:</p> 
+
+								<div class="dv">
+									<input type="button" value="Программист" onclick="cl1()">
+								</div>
+
+								<div class="dv">
+									<input type="button" value="Космонавт" onclick="cl1()">
+								</div>
+
+								<div class="dv">
+									<input type="button" value="Подводник" onclick="cl1()">
+								</div>
+   							
+  					</form>
+
         </div>
 
-        <div class="d2">
-        	
-        </div>
-
-        <div class="d3">
-        	
-        </div>
-        
     </body>
 </html>
