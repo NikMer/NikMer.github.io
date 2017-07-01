@@ -26,34 +26,37 @@
 						Для сбора и анализа статистических показатлей необходимо заполнить форму.<br>
             </p>
         </blockquote>
-        <div class="d1">
+        <form class="spaceform" action="index.html" method="get">
+          <div class="d1">
 
-       			<div class="dv">
-       				<p>Рост:</p><br>
-   						<input type="text" size="10">        				
-       			</div>
+            <div class="dv">
+              <p>Рост:</p><br>
+              <input type="text" size="10">               
+            </div>
 
-       			<div class="dv">
-       				<p>Вес:</p><br>
-   						<input type="text" size="10">        				
-       			</div>  
+            <div class="dv">
+              <p>Вес:</p><br>
+              <input type="text" size="10">               
+            </div>  
 
-   					<div class="dv">
-   							<p>Клаустрофобия:</p><br>
-   							<input class="rb" type="radio" name="sx" value="M" id="sx1"><label for="sx1">Да</label>
-   							<input class="rb" type="radio" name="sx" value="W" id="sx2"><label for="sx2">Нет</label>
-   					</div>
+            <div class="dv">
+                <p>Клаустрофобия:</p><br>
+                <input class="rb" type="radio" name="sx" value="M" id="sx1"><label for="sx1">Да</label>
+                <input class="rb" type="radio" name="sx" value="W" id="sx2"><label for="sx2">Нет</label>
+            </div>
 
-   					 <form action="">
-   							<p>Все готово. Поехали?</p> 
+             <form action="">
+                <p>Все готово. Поехали?</p> 
 
-								<div class="dv">
-									<input type="button" value="Поехали" onclick="cl4()">
-								</div>
+                <div class="dv">
+                  <input type="submit" value="Поехали" onclick="alert('Форма отправлена!')">
+                </div>
 
-  					</form>
+            </form>
 
         </div>
+        </form>
+
         <blockquote>
             <p class="rd">Была ли страница полезной?<br>
             </p>
@@ -63,7 +66,7 @@
         </div>
 
         <div class="dv">
-                  <input id="no" type="button" value="Нет" onclick="cl4()">
+                  <input id="no" type="button" value="Нет">
         </div>
 
     </body>
