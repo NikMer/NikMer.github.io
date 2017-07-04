@@ -26,21 +26,21 @@
 						Для сбора и анализа статистических показатлей необходимо заполнить форму.<br>
             </p>
         </blockquote>
-        <form class="progform" action="index.html" method="get">
+        <form name="form" class="progform" onsubmit="return validate()" action="index.html" method="get">
          <div class="d1">
 
             <div class="dv">
               <p>Аккаунт:</p><br>
-              <input type="text" size="10">               
+              <input type="text" name="account" size="10"><span style="color:red" id="accountf"></span><br />               
             </div>
 
             <div class="dv">
               <p>E-mail:</p><br>
-              <input type="text" size="10">               
+              <input type="text" name="email" size="10"><span style="color:red" id="emailf"></span><br />               
             </div>  
 
             <div class="dv">
-                <p>Опыт:</p><br>
+                <p>Опыт:</p><span style="color:red" id="sxf"></span><br /><br>
                 <input class="rb" type="radio" name="sx" value="M" id="sx1"><label for="sx1">Да</label>
                 <input class="rb" type="radio" name="sx" value="W" id="sx2"><label for="sx2">Нет</label>
             </div>
@@ -49,7 +49,7 @@
                 <p>Все готово. Начнем?</p> 
 
                 <div class="dv">
-                  <input type="submit" value="Начнем" onclick="alert('Форма отправлена!')">
+                  <input type="submit" value="Начнем">
                 </div>
 
             </form>
