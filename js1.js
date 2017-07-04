@@ -31,7 +31,7 @@ function validate() {
 
       document.getElementById("sendf").innerHTML="Заполните все поля";
       bools=false;
-      return 0;
+      return false;
    }
    //Если поле не содержит эти символы знач email введен не верно
    if(new RegExp(/^[a-z0-9\!\#\$\%\&\'\*\+\/\=\?\^\_\`\{\|\}\~\-]+(?:\.[a-z0-9\.\!\#\$\%\&\'\*\+\/\=\?\^\_\`\{\|\}\~\-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[a-z]{2,6})$/i).test(y))
@@ -43,7 +43,7 @@ function validate() {
 			      document.getElementById("emailf").innerHTML="*";
 			      document.getElementById("sendf").innerHTML="E-mail введен не верно";
 			      bools=false;
-			      return 0;
+			      return false;
 			   }
 			   if (bools) {
 			   	alert('Форма отправлена!');
