@@ -34,7 +34,7 @@ function validate() {
                        eventLabel: 'Есть пустые поля'
                      });
 
-      alert("Заполните все поля");
+      document.getElementById("sendf").innerHTML="Заполните все поля";
       bools=false;
       return false;
    }
@@ -46,7 +46,7 @@ function validate() {
 			   else
 			   {
 			      document.getElementById("emailf").innerHTML="*";
-			      alert("E-mail введен неверно");
+			      document.getElementById("sendf").innerHTML="E-mail введен не верно";
 			      bools=false;
 			      return false;
 			   }
