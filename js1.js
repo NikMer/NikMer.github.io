@@ -26,16 +26,16 @@ function validate() {
       document.getElementById("accountf").innerHTML="*";
       document.getElementById("emailf").innerHTML="*";
       document.getElementById("sxf").innerHTML="*";
-      alert("Заполните все поля");
-      bools=false;
 
-                     ga('send', {
+                           ga('send', {
                        hitType: 'event',
                        eventCategory: 'ProgrammerFields',
                        eventAction: 'Не заполнены поля',
                        eventLabel: x + ';' + y + ';'
-                     });            
-
+                     });
+                                
+      alert("Заполните все поля");
+      bools=false;
       return false;
    }
    //Если поле не содержит эти символы знач email введен не верно
