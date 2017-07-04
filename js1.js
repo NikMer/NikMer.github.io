@@ -31,9 +31,9 @@ function validate() {
                        hitType: 'event',
                        eventCategory: 'ProgrammerFields',
                        eventAction: 'Не заполнены поля',
-                       eventLabel: x + ';' + y + ';'
+                       eventLabel: 'Есть пустые поля'
                      });
-                                
+
       alert("Заполните все поля");
       bools=false;
       return false;
