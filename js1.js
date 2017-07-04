@@ -27,12 +27,7 @@ function validate() {
       document.getElementById("emailf").innerHTML="*";
       document.getElementById("sxf").innerHTML="*";
 
-                           ga('send', {
-                       hitType: 'event',
-                       eventCategory: 'ProgrammerFields',
-                       eventAction: 'Не заполнены поля',
-                       eventLabel: 'Есть пустые поля'
-                     });
+                       ga('send', 'event', 'FielFail', 'None var', 'Пустые поля');
 
       document.getElementById("sendf").innerHTML="Заполните все поля";
       bools=false;
