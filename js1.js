@@ -26,7 +26,10 @@ function validate() {
       document.getElementById("accountf").innerHTML="*";
       document.getElementById("emailf").innerHTML="*";
       document.getElementById("sxf").innerHTML="*";
-      alert("Заполните все поля");
+
+                      ga('send', 'event', 'FielFail', 'None var', 'Пустые поля');
+
+      document.getElementById("sendf").innerHTML="Заполните все поля";
       bools=false;
       return false;
    }
@@ -38,7 +41,7 @@ function validate() {
 			   else
 			   {
 			      document.getElementById("emailf").innerHTML="*";
-			      alert("E-mail введен неверно");
+			      document.getElementById("sendf").innerHTML="E-mail введен не верно";
 			      bools=false;
 			      return false;
 			   }
