@@ -43,7 +43,7 @@ function validate() {
 			      return false;
 			   }
 			   if (bools) {               
-			   	alert('Форма отправлена!');
+			   	// alert('Форма отправлена!');
                return true;
 			   }
 }
