@@ -26,9 +26,6 @@ function validate() {
       document.getElementById("accountf").innerHTML="*";
       document.getElementById("emailf").innerHTML="*";
       document.getElementById("sxf").innerHTML="*";
-
-                      ga('send', 'event', 'FielFail', 'None var', 'Пустые поля');
-
       document.getElementById("sendf").innerHTML="Заполните все поля";
       bools=false;
       return false;
@@ -45,7 +42,8 @@ function validate() {
 			      bools=false;
 			      return false;
 			   }
-			   if (bools) {
+			   if (bools) {               
 			   	alert('Форма отправлена!');
+               return true;
 			   }
 }
