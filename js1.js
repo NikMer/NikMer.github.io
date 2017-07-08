@@ -42,7 +42,8 @@ function validate() {
 			      bools=false;
 			      return false;
 			   }
-			   if (bools) {               
+			   if (bools) {
+               document.getElementById("sendf").innerHTML="Validation";           
 			   	// alert('Форма отправлена!');
                return true;
 			   }
