@@ -27,6 +27,13 @@ function validate() {
       document.getElementById("emailf").innerHTML="*";
       document.getElementById("sxf").innerHTML="*";
       document.getElementById("sendf").innerHTML="Заполните все поля";
+
+      ga('send', 'event', {
+          'eventCategory': 'Category',
+          'eventAction': 'Action'
+         });
+
+
       bools=false;
       return false;
    }
