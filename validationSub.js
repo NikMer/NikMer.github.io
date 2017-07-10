@@ -16,7 +16,7 @@ function validate() {
       document.getElementById("sendf").innerHTML="Заполните все поля";
 
       ga('send', 'event', {
-          'eventCategory': 'FailSubSubmit',
+          'eventCategory': 'FailFormSubmit',
           'eventAction': 'FailSub_EmptyField',
           'eventLabel': 'growth: ' + x + ';' + 'weight: ' + y + ';' + 'Yes: ' + yes.checked + ';' + 'No: ' + no.checked + ';'
          });
