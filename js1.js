@@ -16,7 +16,6 @@ function buttonYes() {
           'eventCategory': 'BenefitButton',
           'eventAction': 'YesPressed'
          });
-   cl4();
 }
 
 function buttonNo() {
@@ -25,5 +24,4 @@ function buttonNo() {
           'eventCategory': 'BenefitButton',
           'eventAction': 'NoPressed'
          });
-   cl4();
 }
