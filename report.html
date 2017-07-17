@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+				<meta charset="UTF-8">
+
+        <title>Report</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+					<script src="d3.js"></script>
+
+                    <style type="text/css">        
+                        div.bar {
+                            display: inline-block;
+                            width: 20px;
+                            height: 75px;
+                            background-color: teal;
+                        }        
+                    </style>
+    </head>
+    <body>
+
+		<script>
+			
+               d3.csv("Book.csv", function(data) {
+                        
+                            var w = 500;
+                            var h = 200;
+                            var barPadding = 1;
+
+
+                            data.forEach(function(d) {
+                                        d.users = +d.users
+                                        d.goal1Completions = +d.goal1Completions
+                                        d.goal2Completions = +d.goal2Completions
+                                        d.goal3Completions = +d.goal3Completions
+                                        d.goal4Completions = +d.goal4Completions;
+                                        });
+
+                            var xScale = d3.scaleLinear()
+                                                 .domain([0, d3.max(data, function(d) { return d[0]; })])
+                                                 .range([0, w]);
+
+                            var yScale = d3.scaleLinear()
+                                                 .domain([0, d3.max(data, function(d) { return d[1]; })])
+                                                 .range([0, h]);
+
+
+
+                            var svg = d3.select("body")
+                            .append("svg")
+                            .attr("width", w)
+                            .attr("height", h);
+
+                            svg.selectAll("rect")
+                               .data(data)
+                               .enter()
+                                       .append("rect")
+                                       .attr("x", function(d,i) {return i*(w/data.length);})
+                                       .attr("y", function(d) {return h - d.users * 20;})
+                                       .attr("width", w / data.length - barPadding)
+                                       .attr("height", function(d) {return d.users * 20;})
+                                       .attr("fill", "teal");
+                               console.log(data); 
+                                
+
+                                
+                        })
+
+		</script>
+   
+    	
+    </body>
+    </html>
