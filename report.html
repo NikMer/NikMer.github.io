@@ -6,65 +6,107 @@
         <title>Report</title>
         <link rel="stylesheet" type="text/css" href="style.css">
 					<script src="d3.js"></script>
-
-                    <style type="text/css">        
-                        div.bar {
-                            display: inline-block;
-                            width: 20px;
-                            height: 75px;
-                            background-color: teal;
-                        }        
-                    </style>
     </head>
+
     <body>
-
+<!--  <select id="select1" onchange="select()"></select> -->
 		<script>
-			
-               d3.csv("Book.csv", function(data) {
-                        
-                            var w = 500;
-                            var h = 200;
-                            var barPadding = 1;
+    var w = 500;
+    var h = 200;
+    var barPadding = 1;
+    var padding = 10;
+    var yScale;
+
+    d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+     d3.select("body")
+            .append("select")
+            .attr("id","select")
+            .attr("onchange","select()")
+            .style("position","absolute")
+            .style("left",w + 20 + "px");
+
+    //var lstVal="goal1Completions";
+function csvData(selVal){
+  d3.csv("Book.csv", function(data) {        
+
+      data.forEach(function(d) {
+                  d.users = +d.users
+                  d.goal1Completions = +d.goal1Completions
+                  d.goal2Completions = +d.goal2Completions
+                  d.goal3Completions = +d.goal3Completions
+                  d.goal4Completions = +d.goal4Completions;
+                  });
+
+var arr = [];
+var i=0;
+    data.forEach(function(d){
+      arr[i]=+d[selVal];
+      i++;
+    });
+
+      yScale = d3.scaleLinear()
+                 .domain([0, d3.max(arr)])
+                 .range([0, h]);                  
+
+//Блок для списка
+            d3.select("select").selectAll("option")
+                  .data(data.columns)
+                  .enter()
+                        .append("option")                     
+                        .attr("value",function(d) {return d})
+                        .text(function(d) {return d});
+//Блок для списка 
+fc(data,selVal);                               
+})
+
+}			
 
 
-                            data.forEach(function(d) {
-                                        d.users = +d.users
-                                        d.goal1Completions = +d.goal1Completions
-                                        d.goal2Completions = +d.goal2Completions
-                                        d.goal3Completions = +d.goal3Completions
-                                        d.goal4Completions = +d.goal4Completions;
-                                        });
+function fc(data,lstVal){
 
-                            var xScale = d3.scaleLinear()
-                                                 .domain([0, d3.max(data, function(d) { return d[0]; })])
-                                                 .range([0, w]);
+            d3.select("svg").selectAll("rect")             
+             .remove();
 
-                            var yScale = d3.scaleLinear()
-                                                 .domain([0, d3.max(data, function(d) { return d[1]; })])
-                                                 .range([0, h]);
+            d3.select("svg").selectAll("rect")
+               .data(data)
+               .enter()
+                       .append("rect")
+                       .attr("x", function(d,i) {return i*(w/data.length);})
+                       //.attr("y", function(d) {return h - d.users * 20;})
+                       .attr("y", function(d) {return h - yScale(d[lstVal]);})
+                       .attr("class", "column")
+                       .attr("width", w / data.length - barPadding)
+                       //.attr("height", function(d) {return d.users * 20;})
+                       .attr("height", function(d) {return yScale(d[lstVal]);})
+                       .attr("fill", "teal")
+                       .attr("rx", "1%");
 
 
 
-                            var svg = d3.select("body")
-                            .append("svg")
-                            .attr("width", w)
-                            .attr("height", h);
 
-                            svg.selectAll("rect")
-                               .data(data)
-                               .enter()
-                                       .append("rect")
-                                       .attr("x", function(d,i) {return i*(w/data.length);})
-                                       .attr("y", function(d) {return h - d.users * 20;})
-                                       .attr("width", w / data.length - barPadding)
-                                       .attr("height", function(d) {return d.users * 20;})
-                                       .attr("fill", "teal");
-                               console.log(data); 
-                                
+         // d3.select("svg").selectAll("rect")
+            //.filter(function (d, i) {
+                //if(lstVal && lstVal!=='All')
+                    //return !(d[lstVal] == lstVal);
+                    //console.log(lstVal)
+                //else
+                    //return false;                               
+                //})
+            //.classed("unselected", true);
+}
 
-                                
-                        })
 
+
+
+function select(){
+	var sVal = document.getElementById("select").value;
+  csvData(sVal);	
+}
+  csvData("users");
 		</script>
    
     	
