@@ -76,37 +76,26 @@ function fc(data,lstVal){
                .enter()
                        .append("rect")
                        .attr("x", function(d,i) {return i*(w/data.length);})
-                       //.attr("y", function(d) {return h - d.users * 20;})
                        .attr("y", function(d) {return h - yScale(d[lstVal]);})
                        .attr("class", "column")
-                       .attr("width", w / data.length - barPadding)
-                       //.attr("height", function(d) {return d.users * 20;})
-                       .attr("height", function(d) {return yScale(d[lstVal]);})
+                       //.attr("width", w / data.length - barPadding)
+                       //.attr("height", function(d) {return yScale(d[lstVal]);})
                        .attr("fill", "teal")
-                       .attr("rx", "1%");
+                       .attr("rx", "1%")
+                          .transition()
+                          .duration(1000)
+                          .delay(200)
+                          .attr('width', w / data.length - barPadding)
+                          .attr('height', function(d) {return yScale(d[lstVal]);});
 
-
-
-
-         // d3.select("svg").selectAll("rect")
-            //.filter(function (d, i) {
-                //if(lstVal && lstVal!=='All')
-                    //return !(d[lstVal] == lstVal);
-                    //console.log(lstVal)
-                //else
-                    //return false;                               
-                //})
-            //.classed("unselected", true);
 }
-
-
 
 
 function select(){
 	var sVal = document.getElementById("select").value;
   csvData(sVal);	
 }
-  csvData("users");
+  csvData("date");
 		</script>
    
     	
