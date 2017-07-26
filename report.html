@@ -20,7 +20,8 @@
     d3.select("body")
             .append("svg")
             .attr("width", w)
-            .attr("height", h);
+            .attr("height", h)
+            .attr("transform", "rotate(180)");
 
      d3.select("body")
             .append("select")
@@ -74,19 +75,17 @@ function fc(data,lstVal){
             d3.select("svg").selectAll("rect")
                .data(data)
                .enter()
-                       .append("rect")
-                       .attr("x", function(d,i) {return i*(w/data.length);})
-                       .attr("y", function(d) {return h - yScale(d[lstVal]);})
+                       .append("rect")                       
+                       .attr("x", function(d,i) {return (w-(w / data.length - barPadding))-i*(w/data.length);})                       
+                       .attr("y",0)
                        .attr("class", "column")
-                       //.attr("width", w / data.length - barPadding)
-                       //.attr("height", function(d) {return yScale(d[lstVal]);})
                        .attr("fill", "teal")
                        .attr("rx", "1%")
                           .transition()
                           .duration(1000)
                           .delay(200)
                           .attr('width', w / data.length - barPadding)
-                          .attr('height', function(d) {return yScale(d[lstVal]);});
+                          .attr('height', function(d) {return  yScale(d[lstVal]);});
 
 }
 
